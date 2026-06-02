@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>図書館バイト</title>
+    <meta name="description" content="図書館バイト" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- favicon/web-clip-icon -->
+    <link rel="icon" href="favicon.ico" type="image/ico" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="webclip.png" />
+
+    <!-- ogp共有時の表示 -->
+    <meta property="og:site_name" content="図書館バイト" />
+    <meta property="og:url" content="http://127.0.0.1:5500/src/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="図書館バイト" />
+    <meta property="og:description" content="図書館バイト" />
+    <meta property="og:image" content="URL" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <meta property="fb:app_id" content="AppID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@twitter_id" />
+    <meta name="twitter:description" content="図書館バイト" />
+    <meta name="twitter:image:src" content="URL" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;700&family=Zen+Kurenaido&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- js -->
+    <script src="js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <!-- audio -->
+    <audio id="bubuu" src="audio/bubuu.mp3" preload="auto"></audio>
+  </head>
+  <body class="js_body is-active">
+    <header class="l_header js_header">
+      <h1 class="l_header_logo">
+        <a href="https://mysterytop.netlify.app/" class="l_header_link"
+          >Dの謎べya/図書館バイト</a
+        >
+      </h1>
+      <nav class="l_header-nav js_nav">
+        <ul class="l_header-nav_list">
+          <li class="l_header-nav_item">
+            <a href="index.html" class="l_header-nav_link">はじめから</a>
+          </li>
+          <li class="l_header-nav_item">
+            <a href="https://mysterytop.netlify.app/" class="l_header-nav_link"
+              >Dの謎べya</a
+            >
+          </li>
+          <!-- <li class="l_header-nav_item">
+            <button class="l_header-nav_link" onclick="hint()">ヒント</button>
+          </li> -->
+        </ul>
+      </nav>
+      <button class="m_hamburger js_hamburger">
+        <span class="m_hamburger-bar"></span>
+        <span class="m_hamburger-bar"></span>
+        <span class="m_hamburger-bar"></span>
+      </button>
+    </header>
+    <div class="start">
+      <div class="l_contents l_container-sm">
+        <p>よし！バイト初日、頑張ろう！！</p>
+        <p>図書館でのバイト...楽しみだな！</p>
+        <p>職員さんたち、優しいかな？</p>
+        <br />
+        <p>
+          <button class="m_btn" onclick="openhint('example')">ヒント</button>
+          は、何度でも押せます。
+        </p>
+        <div class="js_hint" id="hintExample1">
+          <br />
+          <p>緊張するな...</p>
+        </div>
+        <div class="js_hint" id="hintExample2">
+          <br />
+          <p>よし、入るぞ！！</p>
+        </div>
+        <div class="js_hint" id="hintExample3">
+          <br />
+          <p>、、、、あーー！<br />やっぱり緊張する！！</p>
+        </div>
+      </div>
+      <button class="m_btn" onclick="start('o')">図書館に入る</button>
+      <p><br /></p>
+      <p>※Chromeでしか<br />動作確認してません！</p>
+      <!-- <p>※メンテナンス中です。動作がうまくいかない場合があります。</p> -->
+    </div>
+    <!-- 黒い全画面レイヤー -->
+    <div id="intro-overlay"></div>
+    <div id="fadeout-overlay"></div>
+    <main class="top_main">
+      <section id="section1" class="l_section js_section is-active">
+        <div class="l_contents l_container-sm">
+          <div class="m_question_p">
+            <p class="m_question_p">
+              「お！君が今日から来てくれたバイトの子だね？」
+            </p>
+            <p class="m_question_p">
+              「仕事教える人がちょっと遅れているみたいで、、、メモを預かってるから、これに目を通しておいてくれる？」
+            </p>
+            <button class="m_btn" onclick="openModal('memo1')">
+              メモを開く
+            </button>
+            <!-- モーダル -->
+            <div id="memo1" class="l_modal is-disable">
+              <div class="l_modal_content">
+                <span class="m_close-btn">&times;</span>
+                <p id="memo1P">指定したコンテンツが入ります</p>
+              </div>
+            </div>
+          </div>
+          <button class="m_btn" onclick="passQuestion()">謎をパス</button>
+        </div>
+      </section>
+      <section id="section2" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <div>
+            <p class="m_question_p">
+              「ごめん💦お待たせ！！メモ読んでくれた？」
+            </p>
+            <p class="m_question_p">「お！謎も解いてんじゃ～ん。いいね！」</p>
+            <p class="m_question_p">
+              「それじゃー早速、メモに書いてあった配架の練習をしようか。普通にやっても面白くないから、これも謎解きにしちゃうよ～！」
+            </p>
+            <button
+              class="m_btn"
+              onclick="
+                openModal('memo2');
+                openQuestion();
+              "
+            >
+              謎を聞く
+            </button>
+            <!-- モーダル -->
+            <div id="memo2" class="l_modal is-disable">
+              <div class="l_modal_content">
+                <span class="m_close-btn">&times;</span>
+                <p id="memo2P">指定したコンテンツが入ります</p>
+              </div>
+            </div>
+            <p class="m_question_p">本棚</p>
+            <div class="m_shelf">
+              <div class="m_slot" data-slot="top-1"></div>
+              <div class="m_slot" data-slot="top-2"></div>
+              <div class="m_slot" data-slot="top-3"></div>
+            </div>
+            <div class="m_shelf">
+              <div class="m_slot" data-slot="bottom-1"></div>
+              <div class="m_slot" data-slot="bottom-2"></div>
+              <div class="m_slot" data-slot="bottom-3"></div>
+            </div>
+            <p class="m_question_p">配架する本</p>
+            <div class="m_outside" id="outside"></div>
+          </div>
+          <button class="m_btn" onclick="openhint()">ヒント</button>
+          <button class="m_btn" onclick="passQuestion()" id="btn-pass">
+            この謎をパス
+          </button>
+          <div class="js_hint" id="hintHaika1">
+            <p class="m_question_p">
+              配架は番号順に左上から右下に本を並べるんだったよな...
+            </p>
+          </div>
+          <div class="js_hint" id="hintHaika2">
+            <p class="m_question_p">
+              上から一桁目...タイトルを上から、一桁目は番号のことかな？
+            </p>
+          </div>
+          <div class="js_hint" id="hintHaika3">
+            <p class="m_question_p">
+              114だからタイトルの上から4文字目の「こ」、他の本は～...わかった！！
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="section3" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <p class="m_question_p">これで配架の仕事は、ばっちりだね！</p>
+          <p class="m_question_p">
+            「次は～分類について教えよう。基本的に司書さんがやってくれるから、ルールだけでも知っておいてね！！まぁ謎解きなんだけど笑」
+          </p>
+          <button
+            class="m_btn"
+            onclick="
+              openModal('memo3');
+              openQuestion();
+            "
+          >
+            謎を見る
+          </button>
+          <!-- モーダル -->
+          <div id="memo3" class="l_modal is-disable">
+            <div class="l_modal_content">
+              <span class="m_close-btn">&times;</span>
+              <p id="memo3P">指定したコンテンツが入ります</p>
+            </div>
+          </div>
+          <button class="m_btn" onclick="openhint('bunrui')">ヒント</button>
+          <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <div class="js_hint" id="bunrui1">
+            <p class="m_question_p">左と右で一緒になるのかな...何が一緒になるんだろ？</p>
+          </div>
+          <div class="js_hint" id="bunrui2">
+            <p class="m_question_p">1，4，7、数字が３つ、、本も３つ...</p>
+          </div>
+          <div class="js_hint" id="bunrui3">
+            <p class="m_question_p">１個目の数字が、１個目の本のタイトルの文字を指してるのかな？</p>
+          </div>
+          <div class="js_hint" id="bunrui4">
+            <p class="m_question_p">1は「オ」、4は「な」、7は「じ」</p>
+          </div>
+          <div class="js_hint" id="bunrui5">
+            <p class="m_question_p">左も右も「おなじ」だ！！ってことは、赤は左の本で青は右の本だから...</p>
+          </div>
+        </div>
+      </section>
+      <section id="section4" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <p class="m_question_p">「分類の仕事もばっちりだね！」</p>
+          <p class="m_question_p">
+            「次は、リファレンス！簡単にいうと本探し。この仕事自体がもう謎解き感あって最高だね👍」
+          </p>
+          <p class="m_question_p">「次の人達の本を探してきてね！<br>ちょっと難しいからタイトルのヒントを書いたメモを渡しておくよ。<br>頑張ってね！！」</p><p class="m_question_p">Aさん「１人暮らし始めたから簡単に作れる料理の本を探しに来ました。」<br>Bさん「鶏肉とかを串にさして焼く料理の有名店を知りたいんだ。」<br>Cさん「肉や野菜を茹でたり煮たりするとえぐ味が出てくんだよ。あれをうまく取り除きたいんだ！」</p>
+          <button
+            class="m_btn"
+            onclick="
+              openModal('memo4');
+              openQuestion();
+            "
+          >
+            メモを開く
+          </button>
+          <!-- モーダル -->
+          <div id="memo4" class="l_modal is-disable">
+            <div class="l_modal_content">
+              <span class="m_close-btn">&times;</span>
+              <p id="memo4P">指定したコンテンツが入ります</p>
+            </div>
+          </div>
+          <button class="m_btn" onclick="openhint('reference')">ヒント</button>
+          <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <div class="js_hint" id="reference1">
+            <p class="m_question_p">一人なら手抜き料理でOKだな！！</p>
+          </div>
+          <div class="js_hint" id="reference2">
+            <p class="m_question_p">ここの焼き鳥屋さんうまそ～</p>
+          </div>
+          <div class="js_hint" id="reference3">
+            <p class="m_question_p">あく抜きいる？めんどくさいよな～</p>
+          </div>
+          <div class="js_hint" id="reference4">
+            <p class="m_question_p">それぞれ「てぬき」「やきとり」「あくぬき」か...</p>
+          </div>
+          <div class="js_hint" id="reference5">
+            <p class="m_question_p">てぬきで「て」をぬいて、やきとりは「やき」をとって、あくぬきは「あく」をぬけばいいんだな！</p>
+          </div>
+        </div>
+      </section>
+      <section id="section5" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <p class="m_question_p">「リファレンスの仕事もばっちりだね！」</p>
+          <p class="m_question_p">「最後は修理だね！本のよごれをとったり、紙を付けたりするよ」</p>
+          <p class="m_question_p">「よろしく」</p>
+          <button
+            class="m_btn"
+            onclick="
+              openModal('memo5');
+              openQuestion();
+            "
+          >
+            謎を聞く
+          </button>
+          <!-- モーダル -->
+          <div id="memo5" class="l_modal is-disable">
+            <div class="l_modal_content">
+              <span class="m_close-btn">&times;</span>
+              <p id="memo5P">指定したコンテンツが入ります</p>
+            </div>
+          </div>
+          <button class="m_btn" onclick="openhint('shuri')">ヒント</button>
+          <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <div class="js_hint" id="shuri1">
+            <p class="m_question_p">とりあえず本を直すか</p>
+          </div>
+          <div class="js_hint" id="shuri2">
+            <p class="m_question_p">んー、なんか見たことある単語ばっかだな</p>
+          </div>
+          <div class="js_hint" id="shuri3">
+            <p class="m_question_p">あ！いままでの謎の答えだ！！</p>
+          </div>
+          <div class="js_hint" id="shuri4">
+            <p class="m_question_p">p.5の答えは、リファレンスだな！「、」と「！」の間に□があるんだよな、、</p>
+          </div>
+          <div class="js_hint" id="shuri5">
+            <p class="m_question_p">あの人が言ってたことを思い出せ～<br>「メモに書いてあった配架の練習をしようか。」<br>「次は～分類について教えよう。」<br>「次は、リファレンス！簡単にいうと本探し。」</p>
+          </div>
+        </div>
+      </section>
+      <section id="goodEnd" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <p class="m_question_p">今日はお疲れ様！！</p>
+          <p class="m_question_p">初日にしては中々良い動きだったよ～！</p>
+          <p class="m_question_p">バイト初日の子にはアンケートとってるんだけど協力よろしくね！</p>
+          <br /><br /><br />
+          <a
+            class="m_annke"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeSdEluQSh8sJcTbEaOPbMXPWJLmbIikBKa85dDWza-GJHpcQ/viewform?usp=dialog"
+            >アンケート回答<br /><br /><br
+          /></a>
+
+          <!-- <a href="explanation.html" class="m_annke">解説</a> -->
+        </div>
+      </section>
+      <section id="badEnd" class="l_section js_section">
+        <div class="l_contents l_container-sm">
+          <p class="m_question_p m_onryou_p"></p>
+          
+          <br /><br /><br />
+          <a
+            class="m_annke m_onryou_p"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeSdEluQSh8sJcTbEaOPbMXPWJLmbIikBKa85dDWza-GJHpcQ/viewform?usp=dialog"
+            >アンケート回答<br /><br
+          /></a>
+          <!-- <a href="explanation.html" class="m_annke">解説</a> -->
+        </div>
+      </section>
+    </main>
+
+    <div class="l_container-sm">
+      <p>※上下グレーのヘッダー・フッターは、謎解きに使用しません。</p>
+    </div>
+    <footer class="l_footer">
+      <div class="l_footer_box">
+        <nav class="l_footer-nav">
+          <ul class="l_footer-nav_list">
+            <li class="l_footer-nav_item">
+              <a href="index.html" class="l_footer-nav_link">はじめから</a>
+            </li>
+            <!-- <li class="l_footer-nav_item">
+              <a href="room.html" class="l_footer-nav_link"
+                >部屋に入ってから</a
+              >
+            </li> -->
+            <!-- <li class="l_footer-nav_item">
+              <button class="l_footer-nav_link" onclick="hint()">ヒント</button>
+            </li> -->
+          </ul>
+        </nav>
+        <div class="l_footer_logo">
+          <a href="index.html" class="l_footer_link">
+            <img
+              src="img/logo.png"
+              alt=""
+              class="l_footer_link-img"
+              width="500"
+              height="500"
+            />
+          </a>
+        </div>
+      </div>
+      <p class="l_footer-copyright">
+        <small class="l_footer-copyright_txt">Dの謎べya</small>
+      </p>
+    </footer>
+  </body>
+</html>
