@@ -138,7 +138,7 @@
             </p>
             <p class="m_question_p">「お！謎も解いてんじゃ～ん。いいね！」</p>
             <p class="m_question_p">
-              「それじゃー早速、メモに書いてあった配架の練習をしようか。普通にやっても面白くないから、これも謎解きにしちゃうよ～！」
+              「それじゃー早速、メモに書いてあった配架の練習をしようか。普通にやっても面白くないから、これも謎解きにしちゃうよ～！はいこれ謎ね」
             </p>
             <button
               class="m_btn"
@@ -147,7 +147,7 @@
                 openQuestion();
               "
             >
-              謎を聞く
+              謎を見る
             </button>
             <!-- モーダル -->
             <div id="memo2" class="l_modal is-disable">
@@ -171,9 +171,8 @@
             <div class="m_outside" id="outside"></div>
           </div>
           <button class="m_btn" onclick="openhint()">ヒント</button>
-          <button class="m_btn" onclick="passQuestion()" id="btn-pass">
-            この謎をパス
-          </button>
+          <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <button class="m_btn" onclick="buckQuestion()">前の謎に戻る</button>
           <div class="js_hint" id="hintHaika1">
             <p class="m_question_p">
               配架は番号順に左上から右下に本を並べるんだったよな...
@@ -181,7 +180,7 @@
           </div>
           <div class="js_hint" id="hintHaika2">
             <p class="m_question_p">
-              上から一桁目...タイトルを上から、一桁目は番号のことかな？
+              上から、一桁目...タイトルを上から、一桁目は番号のことかな？
             </p>
           </div>
           <div class="js_hint" id="hintHaika3">
@@ -193,7 +192,7 @@
       </section>
       <section id="section3" class="l_section js_section">
         <div class="l_contents l_container-sm">
-          <p class="m_question_p">これで配架の仕事は、ばっちりだね！</p>
+          <p class="m_question_p">「これで配架の仕事は、ばっちりだね！」</p>
           <p class="m_question_p">
             「次は～分類について教えよう。基本的に司書さんがやってくれるから、ルールだけでも知っておいてね！！まぁ謎解きなんだけど笑」
           </p>
@@ -215,20 +214,27 @@
           </div>
           <button class="m_btn" onclick="openhint('bunrui')">ヒント</button>
           <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <button class="m_btn" onclick="buckQuestion()">前の謎に戻る</button>
           <div class="js_hint" id="bunrui1">
-            <p class="m_question_p">左と右で一緒になるのかな...何が一緒になるんだろ？</p>
+            <p class="m_question_p">
+              左と右で一緒になるのかな...何が一緒になるんだろ？
+            </p>
           </div>
           <div class="js_hint" id="bunrui2">
             <p class="m_question_p">1，4，7、数字が３つ、、本も３つ...</p>
           </div>
           <div class="js_hint" id="bunrui3">
-            <p class="m_question_p">１個目の数字が、１個目の本のタイトルの文字を指してるのかな？</p>
+            <p class="m_question_p">
+              １個目の数字が、１個目の本のタイトルの文字を指してるのかな？
+            </p>
           </div>
           <div class="js_hint" id="bunrui4">
             <p class="m_question_p">1は「オ」、4は「な」、7は「じ」</p>
           </div>
           <div class="js_hint" id="bunrui5">
-            <p class="m_question_p">左も右も「おなじ」だ！！ってことは、赤は左の本で青は右の本だから...</p>
+            <p class="m_question_p">
+              左も右も「おなじ」だ！！ってことは、赤は左の本で青は右の本だから...
+            </p>
           </div>
         </div>
       </section>
@@ -238,7 +244,12 @@
           <p class="m_question_p">
             「次は、リファレンス！簡単にいうと本探し。この仕事自体がもう謎解き感あって最高だね👍」
           </p>
-          <p class="m_question_p">「次の人達の本を探してきてね！<br>ちょっと難しいからタイトルのヒントを書いたメモを渡しておくよ。<br>頑張ってね！！」</p><p class="m_question_p">Aさん「１人暮らし始めたから簡単に作れる料理の本を探しに来ました。」<br>Bさん「鶏肉とかを串にさして焼く料理の有名店を知りたいんだ。」<br>Cさん「肉や野菜を茹でたり煮たりするとえぐ味が出てくんだよ。あれをうまく取り除きたいんだ！」</p>
+          <p class="m_question_p">
+            「次の人達の本を探してきてね！<br />ちょっと難しいからタイトルのヒントを書いたメモを渡しておくよ。<br />頑張ってね！！」
+          </p>
+          <p class="m_question_p">
+            Aさん「１人暮らし始めたから簡単に作れる料理の本を探しに来ました。」<br />Bさん「鶏肉とかを串にさして焼く料理の有名店を知りたいんだ。」<br />Cさん「肉や野菜を茹でたり煮たりするとえぐ味が出てくんだよ。あれをうまく取り除きたいんだ！」
+          </p>
           <button
             class="m_btn"
             onclick="
@@ -246,7 +257,7 @@
               openQuestion();
             "
           >
-            メモを開く
+            謎を見る
           </button>
           <!-- モーダル -->
           <div id="memo4" class="l_modal is-disable">
@@ -257,6 +268,7 @@
           </div>
           <button class="m_btn" onclick="openhint('reference')">ヒント</button>
           <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <button class="m_btn" onclick="buckQuestion()">前の謎に戻る</button>
           <div class="js_hint" id="reference1">
             <p class="m_question_p">一人なら手抜き料理でOKだな！！</p>
           </div>
@@ -267,17 +279,23 @@
             <p class="m_question_p">あく抜きいる？めんどくさいよな～</p>
           </div>
           <div class="js_hint" id="reference4">
-            <p class="m_question_p">それぞれ「てぬき」「やきとり」「あくぬき」か...</p>
+            <p class="m_question_p">
+              それぞれ「てぬき」「やきとり」「あくぬき」か...
+            </p>
           </div>
           <div class="js_hint" id="reference5">
-            <p class="m_question_p">てぬきで「て」をぬいて、やきとりは「やき」をとって、あくぬきは「あく」をぬけばいいんだな！</p>
+            <p class="m_question_p">
+              てぬきで「て」をぬいて、やきとりは「やき」をとって、あくぬきは「あく」をぬけばいいんだな！
+            </p>
           </div>
         </div>
       </section>
       <section id="section5" class="l_section js_section">
         <div class="l_contents l_container-sm">
           <p class="m_question_p">「リファレンスの仕事もばっちりだね！」</p>
-          <p class="m_question_p">「最後は修理だね！本のよごれをとったり、紙を付けたりするよ」</p>
+          <p class="m_question_p">
+            「最後は修理だね！本のよごれをとったり、紙を付けたりするよ」
+          </p>
           <p class="m_question_p">「よろしく」</p>
           <button
             class="m_btn"
@@ -297,6 +315,7 @@
           </div>
           <button class="m_btn" onclick="openhint('shuri')">ヒント</button>
           <button class="m_btn" onclick="passQuestion()">この謎をパス</button>
+          <button class="m_btn" onclick="buckQuestion()">前の謎に戻る</button>
           <div class="js_hint" id="shuri1">
             <p class="m_question_p">とりあえず本を直すか</p>
           </div>
@@ -307,10 +326,14 @@
             <p class="m_question_p">あ！いままでの謎の答えだ！！</p>
           </div>
           <div class="js_hint" id="shuri4">
-            <p class="m_question_p">p.5の答えは、リファレンスだな！「、」と「！」の間に□があるんだよな、、</p>
+            <p class="m_question_p">
+              p.5の答えは、リファレンスだな！「、」と「！」の間に□があるんだよな、、
+            </p>
           </div>
           <div class="js_hint" id="shuri5">
-            <p class="m_question_p">あの人が言ってたことを思い出せ～<br>「メモに書いてあった配架の練習をしようか。」<br>「次は～分類について教えよう。」<br>「次は、リファレンス！簡単にいうと本探し。」</p>
+            <p class="m_question_p">
+              あの人が言ってたことを思い出せ～<br />「メモに書いてあった配架の練習をしようか。」<br />「次は～分類について教えよう。」<br />「次は、リファレンス！簡単にいうと本探し。」
+            </p>
           </div>
         </div>
       </section>
@@ -318,7 +341,9 @@
         <div class="l_contents l_container-sm">
           <p class="m_question_p">今日はお疲れ様！！</p>
           <p class="m_question_p">初日にしては中々良い動きだったよ～！</p>
-          <p class="m_question_p">バイト初日の子にはアンケートとってるんだけど協力よろしくね！</p>
+          <p class="m_question_p">
+            バイト初日の子にはアンケートとってるんだけど協力よろしくね！
+          </p>
           <br /><br /><br />
           <a
             class="m_annke"
@@ -332,7 +357,7 @@
       <section id="badEnd" class="l_section js_section">
         <div class="l_contents l_container-sm">
           <p class="m_question_p m_onryou_p"></p>
-          
+
           <br /><br /><br />
           <a
             class="m_annke m_onryou_p"

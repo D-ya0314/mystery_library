@@ -177,22 +177,22 @@ const puzzles = [
   },
   {
     question:
-      "<p class=\"m_question_p\">「配架したら、上から一桁目の文字を読んでね！」<br>※ひらがな入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
+      "<p class=\"m_question_p\">本を配架したら、上から、一桁目の箇所の文字を読んでね！<br>※ひらがな入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
     answer: "はいか",
   },
   {
     question:
-      "<div class=\"l_container-bunrui\"><div><p class=\"m_red\">147</p><div class=\"l_bunrui m_shikaku\"><p class=\"m_quesiton_p\">オブスターの心理学</p><p class=\"m_quesiton_p\">魔おんなの心境</p><p class=\"m_quesiton_p\">おとこ心のはじ</p></div></div><p class=\"m_question_p\">=</p><div><p class=\"m_blue\">417</p><div class=\"l_bunrui m_shikaku\"><p class=\"m_quesiton_p\">ガリレオのサイコロ</p><p class=\"m_quesiton_p\">なんども一緒・確率</p><p class=\"m_quesiton_p\">パスカル達のじろん</p></div></div></div><p>答え：<span class=\"m_red\">23</span><span class=\"m_blue\">4</span>い</p><p class=\"m_question_p\"><br>※ひらがな入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
+      '<p class="m_question_p">司書を目指す場合は、分類のルールを覚えておいてね。</p><div class="l_container-bunrui"><div><p class="m_red">147</p><div class="l_bunrui m_shikaku"><p class="m_quesiton_p">オブスターの心理学</p><p class="m_quesiton_p">魔おんなの心境</p><p class="m_quesiton_p">おとこ心のはじ</p></div></div><p class="m_question_p">=</p><div><p class="m_blue">417</p><div class="l_bunrui m_shikaku"><p class="m_quesiton_p">ガリレオのサイコロ</p><p class="m_quesiton_p">なんども一緒・確率</p><p class="m_quesiton_p">パスカル達のじろん</p></div></div></div><p>答え：<span class="m_red">23</span><span class="m_blue">4</span>い</p><p class="m_question_p"><br>※ひらがな入力</p> <input type=\'text\' id=\'answer\' class=\'m_answer\' placeholder=\'答えを入力\' /> <button class=\'m_btn\' id=\'solveBtn\' onclick="submitAnswer()"> 回答 </button> <p id=\'result\'class class=\'m_question_p\'></p>',
     answer: "ぶんるい",
   },
   {
     question:
-      "<p class=\"m_question_p\">Aの本：「〇〇き」料理本<br>Bの本：有名な「〇〇〇〇」屋さん100選<br>Cの本：「〇〇〇き」のコツ</p><p class=\"m_question_p\">てりやきふぁんあててくれす<br>１１１２ ２ ４４４３３３５<br>※ひらがな入力</p><input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
+      "<p class=\"m_question_p\">最近リファレンスは、AIを使われたり使われなかったり...</p><p class=\"m_question_p\">Aの本：「〇〇き」料理本<br>Bの本：有名な「〇〇〇〇」屋さん100選<br>Cの本：「〇〇〇き」のコツ</p><p class=\"m_question_p\">てりやきふぁんあててくれす<br>１１１２ ２ ４４４３３３５<br>※ひらがな入力</p><input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
     answer: "りふぁれんす",
   },
   {
     question:
-      "<div class=\"l_img-box\"><img src=\"img/shuuri_nazo.png\" alt=\"\" class=\"m_img\" width=\"500\" height=\"500\"/></div><p class=\"m_question_p\">「この本を直して～。できたらP.7の問題の答えを教えてね！」<br>※漢字入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
+      "<div class=\"l_img-box\"><img src=\"img/shuuri_nazo.png\" alt=\"\" class=\"m_img\" width=\"500\" height=\"500\"/></div><p class=\"m_question_p\">「この本を修理して～。できたらP.7の問題の答えを教えてね！」<br>※漢字入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
     answer: "修理",
   },
 ];
@@ -282,52 +282,13 @@ function submitAnswer() {
       document.getElementById("section5").classList.add("is-active");
       hintCount = 0;
     } else if (currentPuzzle === 4) {
+      document.getElementById("memo5P").innerHTML = "";
       currentPuzzle++;
       input = "";
       // 次のセクションへ
       document.getElementById("section5").classList.remove("is-active");
       document.getElementById("goodEnd").classList.add("is-active");
       hintCount = 0;
-    }
-  } else if (currentPuzzle === 3) {
-    messageEl.textContent = ".";
-    setTimeout(() => {
-      messageEl.textContent = "次の問題が表示されていません";
-    }, 50);
-  } else if (currentPuzzle === 4 && mailMode === null) {
-    if (mailboxes[selectedMailbox] === "未送信メール") {
-      mailMode = "draft";
-      updateScreen();
-    } else if (mailboxes[selectedMailbox] === "受信メール") {
-      mailMode = "receive";
-      updateScreen();
-    } else if (mailboxes[selectedMailbox] === "送信済みメール") {
-      mailMode = "send";
-      updateScreen();
-    }
-  } else if (currentPuzzle === 4 && mailMode === "receive") {
-    if (receiveMailbox[selectedMailbox] === "私と遊ボ") {
-      mailMode = "receiveMail1";
-      updateScreen();
-    } else if (receiveMailbox[selectedMailbox] === "Re：Re：私と遊ボ") {
-      mailMode = "receiveMail2";
-      updateScreen();
-    }
-  } else if (currentPuzzle === 4 && mailMode === "send") {
-    if (sendMailbox[selectedMailbox] === "Re：私と遊ボ") {
-      mailMode = "sendMail1";
-      updateScreen();
-    } else if (sendMailbox[selectedMailbox] === "****") {
-      mailMode = "sendMail2";
-      updateScreen();
-    }
-  } else if (currentPuzzle === 4 && mailMode === "draft") {
-    if (draftMailbox[selectedMailbox] === "助けて") {
-      mailMode = "draftMail1";
-      updateScreen();
-    } else if (draftMailbox[selectedMailbox] === "Re：私と遊ボ") {
-      mailMode = "draftMail2";
-      updateScreen();
     }
   } else {
     result.textContent = ".";
@@ -494,6 +455,47 @@ function openhint() {
 function passQuestion() {
   input = puzzles[currentPuzzle].answer;
   submitAnswer();
+}
+
+// 前の謎に戻るボタン処理
+function buckQuestion() {
+  if (currentPuzzle === 1) {
+    document.getElementById("memo1").classList.add("is-disable");
+    document.getElementById("memo2P").innerHTML = "";
+    currentPuzzle--;
+    input = "";
+    // 前のセクションへ
+    document.getElementById("section2").classList.remove("is-active");
+    document.getElementById("section1").classList.add("is-active");
+    hintCount = 0;
+  } else if (currentPuzzle === 2) {
+    document.getElementById("memo2").classList.add("is-disable");
+    document.getElementById("memo3P").innerHTML = "";
+    currentPuzzle--;
+    input = "";
+    // 次のセクションへ
+    document.getElementById("section3").classList.remove("is-active");
+    document.getElementById("section2").classList.add("is-active");
+    hintCount = 0;
+  } else if (currentPuzzle === 3) {
+    document.getElementById("memo3").classList.add("is-disable");
+    document.getElementById("memo4P").innerHTML = "";
+    currentPuzzle--;
+    input = "";
+    // 次のセクションへ
+    document.getElementById("section4").classList.remove("is-active");
+    document.getElementById("section3").classList.add("is-active");
+    hintCount = 0;
+  } else if (currentPuzzle === 4) {
+    document.getElementById("memo4").classList.add("is-disable");
+    document.getElementById("memo5P").innerHTML = "";
+    currentPuzzle--;
+    input = "";
+    // 次のセクションへ
+    document.getElementById("section5").classList.remove("is-active");
+    document.getElementById("section4").classList.add("is-active");
+    hintCount = 0;
+  }
 }
 
 const booksData = [
