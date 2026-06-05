@@ -192,8 +192,8 @@ const puzzles = [
   },
   {
     question:
-      "<div class=\"l_img-box\"><img src=\"img/shuuri_nazo.png\" alt=\"\" class=\"m_img\" width=\"500\" height=\"500\"/></div><p class=\"m_question_p\">「この本を修理して～。できたらP.7の問題の答えを教えてね！」<br>※漢字入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
-    answer: "修理",
+      "<div class=\"l_img-box\"><img src=\"img/shuuri_nazo.png\" alt=\"\" class=\"m_img\" width=\"500\" height=\"500\"/></div><p class=\"m_question_p\">この本を修復して！できたらP.7の問題の答えを教えてね！！<br>※漢字入力</p> <input type='text' id='answer' class='m_answer' placeholder='答えを入力' /> <button class='m_btn' id='solveBtn' onclick=\"submitAnswer()\"> 回答 </button> <p id='result'class class='m_question_p'></p>",
+    answer: "修復",
   },
 ];
 
